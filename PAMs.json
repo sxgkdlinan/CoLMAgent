@@ -1,0 +1,103 @@
+{
+    "P001": {
+        "process_id": "P001",
+        "process_name": "齿轮箱健康状态评估工艺",
+        "PS_id": [
+            "PS20251030001"
+        ],
+        "input_data": [
+            {"id": "40ZD20251030001", "description": "振动数据"},
+            {"id": "40WD20251030001", "description": "温度数据"},
+            {"id": "40RR20251030001", "description": "润滑数据"},
+            {"id": "40MS20251030001", "description": "磨损数据"}
+        ],
+        "output_data": [
+            {"id": "40PG20251030001", "description": "健康状态评估结果"},
+            {"id": "40YC20251030001", "description": "健康状态评估分数"}
+        ],
+        "device_name": ["齿轮箱"],
+        "device_id": ["CLX001"],
+        "process_keywords": ["健康评估", "健康状态", "状态评分"]
+    },
+    "P002": {
+        "process_id": "P002",
+        "process_name": "齿轮箱故障诊断工艺",
+        "PS_id": [
+            "PS20251030002"
+        ],
+        "input_data": [
+            {"id": "40ZD20251030002", "description": "振动数据"},
+            {"id": "40WD20251030002", "description": "温度数据"},
+            {"id": "40ZZ20251030002", "description": "转速数据"},
+            {"id": "40FZ20251030002", "description": "负载数据"}
+        ],
+        "output_data": [
+            {"id": "40ZD20251030002", "description": "齿轮箱故障诊断结果"},
+            {"id": "40JG20251030002", "description": "齿轮箱故障类型"}
+        ],
+        "device_name": ["齿轮箱", "齿轮箱内圈齿轮","齿轮箱外圈齿轮","齿轮箱轴承"],
+        "device_id": ["CLX001","Gear001","Gear002", "Bearing001"],
+        "process_keywords": ["故障诊断", "故障判断", "故障检测"]
+    },
+    "P003": {
+        "process_id": "P003",
+        "process_name": "齿轮箱数字孪生工艺",
+        "PS_id": [
+            "PS20251030003"
+        ],
+        "input_data": [
+            {"id": "40CC20251030003", "description": "齿轮尺寸"},
+            {"id": "40ZD20251030003", "description": "振动数据"},
+            {"id": "40HJ20251030003", "description": "环境数据"},
+            {"id": "40WD20251030003", "description": "温度数据"},
+            {"id": "40FZ20251030003", "description": "负载数据"}
+        ],
+        "output_data": [
+            {"id": "40OL20251030003", "description": "齿轮箱运行状态"},
+            {"id": "40FL20251030003", "description": "齿轮箱状态预测"}
+        ],
+        "device_name": ["齿轮箱"],
+        "device_id": ["CLX001"],
+        "process_keywords": ["数字孪生", "状态预测", "运行状态", "状态监测"]
+    },
+    "P004": {
+        "process_id": "P004",
+        "process_name": "齿轮箱预测性维护工艺",
+        "PS_id": [
+            "PS20251030004"
+        ],
+        "input_data": [
+            {"id": "40LZ20251030004", "description": "连续振动数据"},
+            {"id": "40LW20251030004", "description": "连续温度数据"},
+            {"id": "40ZS20251030004", "description": "连续转速数据"},
+            {"id": "40LM20251030004", "description": "连续磨损数据"}
+        ],
+        "output_data": [
+            {"id": "40EL20251030004", "description": "剩余寿命预测结果"},
+            {"id": "40OL20251030004", "description": "齿轮箱故障预测结果"}
+        ],
+        "device_name": ["齿轮箱", "齿轮箱内圈齿轮","齿轮箱外圈齿轮","齿轮箱轴承"],
+        "device_id": ["CLX001","Gear001","Gear002", "Bearing001"],
+        "process_keywords": ["预测性维护", "故障预测", "剩余寿命预测"]
+    },
+    "P005": {
+        "process_id": "P005",
+        "process_name": "齿轮箱运维决策工艺",
+        "PS_id": [
+            "PS20251030005"
+        ],
+        "input_data": [
+            {"id": "40LZ20251030006", "description": "连续振动数据"},
+            {"id": "40LW20251030006", "description": "连续温度数据"},
+            {"id": "40ZS20251030006", "description": "连续转速数据"},
+            {"id": "40LM20251030006", "description": "连续磨损数据"}
+        ],
+        "output_data": [
+            {"id": "40OL20251030005", "description": "运维决策方案"},
+            {"id": "40OL20251030006", "description": "运维优化建议"}
+        ],
+        "device_name": ["齿轮箱"],
+        "device_id": ["CLX001"],
+        "process_keywords": ["运维决策","优化策略", "维护方案", "维护策略"]
+    }
+}

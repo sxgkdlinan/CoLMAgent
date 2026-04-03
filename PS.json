@@ -1,0 +1,122 @@
+{
+  "P001": {
+    "PS_ID":"PS20251030001",
+    "process_name": "齿轮箱健康状态评估工艺",
+    "pam_input_points": ["40ZD20251030001", "40WD20251030001", "40RR20251030001", "40MS20251030001"],
+    "pam_output_points": ["40PG20251030001", "40YC20251030001"],
+    "nodes": [
+      {
+        "node_id": "SM001_1",
+        "name": "健康特征提取",
+        "parents": [],
+        "external_inputs": ["40ZD20251030001", "40WD20251030001", "40RR20251030001", "40MS20251030001"],
+        "outputs": ["health_feature_internal"],
+        "function": "feature_extraction_for_health"
+      },
+      {
+        "node_id": "SM001_2",
+        "name": "健康评分计算",
+        "parents": ["SM001_1"],
+        "external_inputs": [],
+        "outputs": ["40PG20251030001", "40YC20251030001"],
+        "function": "health_score_calculator"
+      }
+    ]
+  },
+  "P002": {
+    "PS_ID":"PS20251030002",
+    "process_name": "齿轮箱故障诊断工艺",
+    "pam_input_points": ["40ZD20251030002", "40WD20251030002", "40ZZ20251030002", "40FZ20251030002"],
+    "pam_output_points": ["40ZD20251030002_out", "40JG20251030002"],
+    "nodes": [
+      {
+        "node_id": "SM002_1",
+        "name": "故障特征提取",
+        "parents": [],
+        "external_inputs": ["40ZD20251030002", "40WD20251030002", "40ZZ20251030002", "40FZ20251030002"],
+        "outputs": ["vib_norm", "temp_norm"],
+        "function": "fault_feature_extraction"
+      },
+      {
+        "node_id": "SM002_2",
+        "name": "故障分类器",
+        "parents": ["SM002_1"],
+        "external_inputs": [],
+        "outputs": ["40ZD20251030002_out", "40JG20251030002"],
+        "function": "fault_classifier"
+      }
+    ]
+  },
+  "P003": {
+    "PS_ID":"PS20251030003",
+    "process_name": "齿轮箱数字孪生工艺",
+    "pam_input_points": ["40CC20251030003", "40ZD20251030003", "40HJ20251030003", "40WD20251030003", "40FZ20251030003"],
+    "pam_output_points": ["40OL20251030003", "40FL20251030003"],
+    "nodes": [
+      {
+        "node_id": "SM003_1",
+        "name": "状态估计器",
+        "parents": [],
+        "external_inputs": ["40CC20251030003", "40ZD20251030003", "40HJ20251030003", "40WD20251030003", "40FZ20251030003"],
+        "outputs": ["current_status_internal"],
+        "function": "state_estimator"
+      },
+      {
+        "node_id": "SM003_2",
+        "name": "状态预测器",
+        "parents": ["SM003_1"],
+        "external_inputs": [],
+        "outputs": ["40OL20251030003", "40FL20251030003"],
+        "function": "state_predictor"
+      }
+    ]
+  },
+  "P004": {
+    "PS_ID":"PS20251030004",
+    "process_name": "齿轮箱预测性维护工艺",
+    "pam_input_points": ["40LZ20251030004", "40LW20251030004", "40ZS20251030004", "40LM20251030004"],
+    "pam_output_points": ["40EL20251030004", "40OL20251030004"],
+    "nodes": [
+      {
+        "node_id": "SM004_1",
+        "name": "退化趋势分析",
+        "parents": [],
+        "external_inputs": ["40LZ20251030004", "40LW20251030004", "40ZS20251030004", "40LM20251030004"],
+        "outputs": ["degradation_index"],
+        "function": "degradation_analysis"
+      },
+      {
+        "node_id": "SM004_2",
+        "name": "剩余寿命预测",
+        "parents": ["SM004_1"],
+        "external_inputs": [],
+        "outputs": ["40EL20251030004", "40OL20251030004"],
+        "function": "rlf_predictor"
+      }
+    ]
+  },
+  "P005": {
+    "PS_ID":"PS20251030005",
+    "process_name": "齿轮箱运维决策工艺",
+    "pam_input_points": ["40LZ20251030006", "40LW20251030006", "40ZS20251030006", "40LM20251030006"],
+    "pam_output_points": ["40OL20251030005", "40OL20251030006"],
+    "nodes": [
+      {
+        "node_id": "SM005_1",
+        "name": "风险评估",
+        "parents": [],
+        "external_inputs": ["40LZ20251030006", "40LW20251030006", "40ZS20251030006", "40LM20251030006"],
+        "outputs": ["risk_level_internal"],
+        "function": "risk_assessment"
+      },
+      {
+        "node_id": "SM005_2",
+        "name": "决策方案生成",
+        "parents": ["SM005_1"],
+        "external_inputs": [],
+        "outputs": ["40OL20251030005", "40OL20251030006"],
+        "function": "decision_generator"
+      }
+    ]
+  }
+}
